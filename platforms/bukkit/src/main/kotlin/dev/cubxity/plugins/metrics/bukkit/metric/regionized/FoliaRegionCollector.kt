@@ -34,9 +34,10 @@ class FoliaRegionCollector : Collector {
         val worlds = Bukkit.getWorlds()
 
         val regions = ArrayList<ThreadedRegion<TickRegionData, TickRegionSectionData>>()
-        for (world in worlds) {
+        // java.lang.NoSuchMethodError: 'net.minecraft.server.level.ServerLevel org.bukkit.craftbukkit.v1_20_R3.CraftWorld.getHandle()'
+/*        for (world in worlds) {
             world.regioniser.computeForAllRegions(regions::add)
-        }
+        }*/
 
         val samples = ArrayList<Metric>(regions.size * 4 + 1)
         for (region in regions) {

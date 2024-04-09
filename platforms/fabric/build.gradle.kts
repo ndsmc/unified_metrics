@@ -16,8 +16,7 @@
  */
 
 plugins {
-    id("fabric-loom") version "1.4.1"
-    id("net.kyori.blossom")
+    id("fabric-loom") version "1.4.5"
 }
 
 val transitiveInclude: Configuration by configurations.creating {
@@ -30,10 +29,10 @@ dependencies {
     // https://fabricmc.net/versions.html
     minecraft("com.mojang:minecraft:1.17.1")
     mappings("net.fabricmc:yarn:1.17.1+build.65:v2")
-    modImplementation("net.fabricmc:fabric-loader:0.14.23")
+    modImplementation("net.fabricmc:fabric-loader:0.15.3")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.46.1+1.17")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.10+kotlin.1.9.10")
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.17+kotlin.1.9.22")
 
     api(project(":unifiedmetrics-core"))
 
@@ -76,9 +75,4 @@ tasks {
 java {
     sourceCompatibility = JavaVersion.VERSION_16
     targetCompatibility = JavaVersion.VERSION_16
-}
-
-blossom {
-    replaceTokenIn("src/main/kotlin/dev/cubxity/plugins/metrics/fabric/bootstrap/UnifiedMetricsFabricBootstrap.kt")
-    replaceToken("@version@", version)
 }
